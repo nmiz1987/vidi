@@ -32,7 +32,7 @@ export default function RootLayout() {
   return (
     <AppContextProvider>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(main)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
     </AppContextProvider>
