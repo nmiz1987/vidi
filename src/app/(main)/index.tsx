@@ -5,7 +5,7 @@ import { Link } from 'expo-router';
 export default function HomeScreen() {
   return (
     <Screen contentContainerStyle={styles.container}>
-      <Text>Home</Text>
+      <Text className="text-red-500 text-4xl font-bold">Home</Text>
       <Link href="/(main)/profile">Profile</Link>
     </Screen>
   );

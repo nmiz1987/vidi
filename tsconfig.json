@@ -4,7 +4,9 @@
     "strict": true,
     "allowJs": false,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "experimentalDecorators": true,
     "resolveJsonModule": true,
@@ -17,17 +19,27 @@
     "noUnusedLocals": false,
     "sourceMap": true,
     "target": "esnext",
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "skipLibCheck": true,
     "baseUrl": "./",
     "jsx": "react-jsx",
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
-  "exclude": ["node_modules", "babel.config.js", "metro.config.js"],
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js"
+  ],
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
+    "expo-env.d.ts",
+    "nativewind-env.d.ts"
   ]
 }
