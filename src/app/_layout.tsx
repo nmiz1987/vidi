@@ -39,8 +39,8 @@ export default function RootLayout() {
   return (
     <AppContextProvider>
       <Stack>
-        <Stack.Screen name="(main)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="profile" options={{ headerShown: false }} />
       </Stack>
     </AppContextProvider>
   );

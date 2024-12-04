@@ -6,7 +6,7 @@ export default function ProfileScreen() {
   return (
     <Box className="flex-1 items-center justify-center bg-red-500">
       <Text>Profile</Text>
-      <Link href="/(main)">Home</Link>
+      <Link href="/">Home</Link>
     </Box>
   );
 }
