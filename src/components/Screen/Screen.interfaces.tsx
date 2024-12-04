@@ -12,4 +12,6 @@ export interface ScreenProps {
   KeyboardAvoidingViewProps?: KeyboardAvoidingViewProps;
   safeAreaEdges?: ExtendedEdge[];
   children: React.ReactNode;
+  className?: string;
+  contentContainerClassName?: string;
 }

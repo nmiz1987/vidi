@@ -1,13 +1,15 @@
-import { forwardRef } from 'react';
 import { ScrollView, ScrollViewProps, StyleSheet, ViewProps } from 'react-native';
+import { remapProps } from 'nativewind';
 
 export type ScreenWithScrollProps = ViewProps & {
+  className?: string;
+  contentContainerClassName?: string;
   style?: ViewProps['style'];
   contentContainerStyle?: ScrollViewProps['style'];
   noPadding?: boolean;
 };
 
-export const ScreenWithScroll = forwardRef((props: ScreenWithScrollProps, ref: React.ForwardedRef<ScrollView>) => {
+const ScreenWithScrollTmp = (props: ScreenWithScrollProps) => {
   const { style, children, noPadding, contentContainerStyle, ...otherProps } = props;
 
   return (
@@ -15,14 +17,18 @@ export const ScreenWithScroll = forwardRef((props: ScreenWithScrollProps, ref: R
       keyboardShouldPersistTaps="handled"
       style={[styles.scrollView, style]}
       contentContainerStyle={[styles.scrollViewContentContainer, noPadding ? { padding: 0 } : {}, contentContainerStyle]}
-      ref={ref}
       {...otherProps}>
       {children}
     </ScrollView>
   );
-});
+};
 
-ScreenWithScroll.displayName = 'ScreenWithScroll';
+ScreenWithScrollTmp.displayName = 'ScreenWithScroll';
+
+export const ScreenWithScroll = remapProps(ScreenWithScrollTmp, {
+  className: 'style',
+  contentContainerClassName: 'contentContainerStyle',
+});
 
 const styles = StyleSheet.create({
   // placeholder for feature options

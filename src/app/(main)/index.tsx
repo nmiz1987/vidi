@@ -1,19 +1,12 @@
-import { StyleSheet, Text } from 'react-native';
-import { Screen } from '@/components/Screen/Screen';
+import { Text } from 'react-native';
 import { Link } from 'expo-router';
+import { Screen } from '@/components/Screen/Screen';
 
 export default function HomeScreen() {
   return (
-    <Screen contentContainerStyle={styles.container}>
-      <Text className="text-red-500 text-4xl font-bold">Home</Text>
+    <Screen contentContainerClassName="bg-green-200 flex-1 justify-center items-center">
+      <Text className="font-pblack text-4xl">Home</Text>
       <Link href="/(main)/profile">Profile</Link>
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});

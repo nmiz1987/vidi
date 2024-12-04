@@ -5,6 +5,11 @@ declare module '*.svg' {
   export default content;
 }
 
+declare module '*.png' {
+  const content: any;
+  export default content;
+}
+
 declare module '*.mdx' {
   function Component(props: any): JSX.Element;
   export default Component;

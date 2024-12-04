@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet } from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import { ScreenProps } from './Screen.interfaces';
 import { useHeaderHeight } from '@react-navigation/elements';
 import { ScreenWithScroll } from './ScreenWithScroll/ScreenWithScroll';
@@ -8,7 +7,7 @@ import { ScreenWithoutScroll } from './ScreenWithoutScroll/ScreenWithoutScroll';
 import { Box } from '../Box/Box';
 import { useSafeAreaInsetsStyle } from '@/hooks/useSafeAreaInsetsStyle';
 
-export const Screen = React.forwardRef((props: ScreenProps, ref: React.ForwardedRef<ScrollView>) => {
+export const Screen = (props: ScreenProps) => {
   const {
     noScroll,
     statusBarColor,
@@ -19,6 +18,8 @@ export const Screen = React.forwardRef((props: ScreenProps, ref: React.Forwarded
     keyboardOffset = 0,
     KeyboardAvoidingViewProps,
     safeAreaEdges,
+    className,
+    contentContainerClassName,
     ...otherProps
   } = props;
   const headerHeight = useHeaderHeight();
@@ -33,18 +34,23 @@ export const Screen = React.forwardRef((props: ScreenProps, ref: React.Forwarded
         {...KeyboardAvoidingViewProps}
         style={[{ flex: 1 }, KeyboardAvoidingViewProps?.style]}>
         {noScroll ? (
-          <ScreenWithoutScroll style={style} noPadding={noPadding}>
+          <ScreenWithoutScroll className={className} style={style} noPadding={noPadding}>
             {children}
           </ScreenWithoutScroll>
         ) : (
-          <ScreenWithScroll style={style} noPadding={noPadding} contentContainerStyle={contentContainerStyle}>
+          <ScreenWithScroll
+            contentContainerClassName={contentContainerClassName}
+            className={className}
+            style={style}
+            noPadding={noPadding}
+            contentContainerStyle={contentContainerStyle}>
             {children}
           </ScreenWithScroll>
         )}
       </KeyboardAvoidingView>
     </Box>
   );
-});
+};
 
 Screen.displayName = 'Screen';
 
